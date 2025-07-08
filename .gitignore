@@ -2,3 +2,4 @@ pg_data/*
 odoo_data/*
 config/*
 .env
+odoo.conf
