@@ -8,8 +8,7 @@ services:
     ports:
       - "8069:8069"
     volumes:
-      - ./odoo_data:/var/lib/odoo
-      - ./config:/etc/odoo
+      - data:/var/lib/odoo
     restart: unless-stopped
 
   postgres_odoo:
