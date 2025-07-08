@@ -1,0 +1,19 @@
+services:
+  odoo:
+    image: odoo:18.0
+    env_file: .env
+    depends_on:
+      - postgres
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./odoo_data:/var/lib/odoo # filestore Odoo
+      - ./config:/etc/odoo # optional: custom config
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15
+    env_file: .env
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data/pgdata
+    restart: unless-stopped
